@@ -52,7 +52,7 @@ pnpm build        # 编译
 
 | 方法 | 路径 | 说明 |
 |------|------|------|
-| POST | `/login` | 用户登录（admin/123456） |
+| POST | `/login` | 用户登录 |
 | POST | `/logout` | 退出登录 |
 | GET | `/groups` | 全部分组（含笔记数） |
 | GET | `/groups/:id` | 单个分组详情 |
@@ -83,7 +83,7 @@ pnpm build        # 编译
 
 ## 认证
 
-- 当前为硬编码验证：admin / 123456
+- 当前为硬编码验证，仅支持预设账号登录
 - 登录成功返回 `{accessToken, name}`
 - 无实际 Token 校验中间件
 

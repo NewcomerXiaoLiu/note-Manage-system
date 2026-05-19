@@ -42,7 +42,7 @@ pnpm build:prod   # 生产构建
 
 1. 启动后端 `pnpm start:dev`（端口 3000）
 2. 启动前端 `pnpm dev`（端口 9527）
-3. 访问 `http://localhost:9527`，登录账号 admin / 123456
+3. 访问 `http://localhost:9527`，使用预设账号登录
 
 ## 环境变量
 

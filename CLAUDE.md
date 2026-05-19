@@ -45,7 +45,7 @@ note-Manage-system/
 - 前端 Axios baseURL 固定为 `/api`
 
 ### 认证方式（硬编码）
-- 仅支持 admin/123456 登录验证，无用户表
+- 仅支持预设账号登录验证，无用户表
 - 登录成功返回 `{accessToken, name}`，无实际 Token 校验
 
 ### 数据库
