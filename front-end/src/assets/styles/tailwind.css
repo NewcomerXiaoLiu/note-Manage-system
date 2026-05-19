@@ -1,0 +1,9 @@
+@layer theme, base, components, utilities;
+/* @import "tailwindcss/theme.css" layer(theme); */
+/* 删除layer(theme)提高层级 */
+@import 'tailwindcss/theme.css';
+/* 禁用 Tailwind CSS 的 Preflight */
+/* @import "tailwindcss/preflight.css" layer(base); */
+/* @import "tailwindcss/utilities.css" layer(utilities); */
+/* 删除layer(utilities)提高层级 */
+@import 'tailwindcss/utilities.css';

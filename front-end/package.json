@@ -1,0 +1,137 @@
+{
+  "name": "vue3-template-project",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --open",
+    "build:test": "vite build --mode test",
+    "build:prod": "vite build --mode production",
+    "buildts:test": "vue-tsc --noEmit && vite build --mode test",
+    "buildts:prod": "vue-tsc --noEmit && vite build --mode production",
+    "preview": "vite preview",
+    "lint:ts": "vue-tsc --noEmit",
+    "lint:staged-ts": "vue-tsc --noEmit --skipLibCheck",
+    "lint:eslint": "eslint \"**/*.{css,scss,vue,ts,js}\" --fix",
+    "lint:prettier": "prettier --write --check ./src",
+    "lint:stylelint": "stylelint \"**/*.{css,scss,vue}\" --fix",
+    "lint:lint-staged": "lint-staged",
+    "prepare": "husky",
+    "commit": "git-cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,mts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "stylelint --fix --allow-empty-input",
+      "prettier --write"
+    ],
+    "*.{js,mjs}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{cjs,json,jsonc}": [
+      "prettier --write"
+    ],
+    "*.{html,htm}": [
+      "prettier --write"
+    ],
+    "*.{scss,css,less}": [
+      "stylelint --fix --allow-empty-input",
+      "prettier --write"
+    ],
+    "*.{md,mdx}": [
+      "prettier --write"
+    ],
+    "*.{yaml,yml}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "@tailwindcss/vite": "^4.1.18",
+    "@vueuse/core": "^11.3.0",
+    "@wangeditor/editor": "^5.1.23",
+    "ant-design-vue": "^4.2.6",
+    "await-to-js": "^3.0.0",
+    "axios": "^1.13.2",
+    "dayjs": "^1.11.19",
+    "echarts": "^5.6.0",
+    "file-saver": "^2.0.5",
+    "highlight.js": "^11.11.1",
+    "lodash-es": "^4.17.22",
+    "nprogress": "^0.2.0",
+    "pinia": "^3.0.4",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "shelljs": "^0.10.0",
+    "tailwindcss": "^4.1.18",
+    "vue": "^3.5.26",
+    "vue-router": "^4.6.4"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@eslint/js": "^9.39.2",
+    "@iconify/vue": "^5.0.0",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^22.19.3",
+    "@types/nprogress": "^0.2.3",
+    "@types/shelljs": "^0.8.17",
+    "@types/vue": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/parser": "^8.51.0",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/compiler-sfc": "^3.5.26",
+    "autoprefixer": "^10.4.23",
+    "commitizen": "^4.3.1",
+    "cz-git": "^1.12.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-import-resolver-node": "^0.3.9",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-unused-imports": "^4.3.0",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "mockjs": "^1.1.0",
+    "prettier": "^3.7.4",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "sass": "^1.97.1",
+    "stylelint": "^16.26.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-recess-order": "^4.6.0",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-recommended-vue": "^1.6.1",
+    "stylelint-config-standard": "^36.0.1",
+    "terser": "^5.44.1",
+    "tsx": "^4.21.0",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.51.0",
+    "ufo": "^1.6.1",
+    "unplugin-auto-import": "^0.18.6",
+    "unplugin-vue-components": "^0.27.5",
+    "vite": "^6.4.1",
+    "vite-plugin-cdn-import": "^1.0.1",
+    "vite-plugin-clean": "^2.0.1",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-mock": "2.9.8",
+    "vite-plugin-vue-devtools": "^7.7.9",
+    "vite-plugin-vue-setup-extend": "^0.4.0",
+    "vue-demi": "^0.14.10",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "~2.1.10"
+  }
+}

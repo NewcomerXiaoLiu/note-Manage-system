@@ -1,0 +1,158 @@
+{
+  // VSCode 配置文件，主要用于前端项目的代码格式化、保存时自动修复、文件嵌套、搜索排除等功能。"
+  "volar.inlayHints.eventArgumentInInlineHandlers": true,
+  "i18n-ally.localesPaths": ["src/locales/langs", "src/locales"],
+  "i18n-ally.enabledParsers": ["json"],
+  "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.displayLanguage": "zh",
+  "i18n-ally.enabledFrameworks": ["vue", "react"],
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.namespace": true,
+
+  // 编辑器基础配置
+  "editor.codeLens": true, // 显示行号
+  "editor.tabSize": 2, // 重新设定tabsize
+  "editor.detectIndentation": false, // 禁用自动检测缩进
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具
+  "files.eol": "\n", // 文件结束符
+
+  // ============ 关键配置：关闭保存时格式化，但保持错误提示 ============
+  // 保存时自动格式化，改用手动触发或提交时格式化
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    // 有效值:
+    // "always"   - 每次保存时自动修复
+    // "explicit" - 仅在显式触发（如命令面板/快捷键）时修复
+    // "never"    - 从不自动修复
+    // true/false - 启用/禁用该修复
+    // 只启用 ESLint 错误检查和修复，不启用格式化
+    "source.fixAll.eslint": "explicit", // 改为 explicit，需要手动触发
+    "source.fixAll.stylelint": "explicit",
+    "source.organizeImports": "never" // 关闭自动整理导入
+  },
+
+  // ============ ESLint 配置：保持实时错误提示 ============
+  // 优化 ESLint 性能
+  "eslint.format.enable": false, // 关闭 ESLint 的格式化功能
+  "eslint.lintTask.enable": true, // 启用 lint 任务
+  "eslint.run": "onType", // 改为输入时检查，而不是保存时
+  "eslint.probe": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "html"],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "html"],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+
+  // ============ Prettier 配置：完全手动控制 ============
+  "prettier.requireConfig": true, // 需要 prettier 配置文件
+  "prettier.useEditorConfig": false, // 不使用 .editorconfig
+  "prettier.disableLanguages": [], // 不禁用任何语言
+
+  // ============ 按文件类型配置 ============
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false, // 确保关闭
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[less]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": false
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": false
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+  },
+
+  // 启用文件资源管理器的文件嵌套显示，并自定义嵌套规则,
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "package.json": ".env*,.auto-import.json,.editorconfig,eslint*,package*,.prettier*,.stylelint*,commitlint*,pnpm*,ts*,yarn*,.git*,index.html,nginx.conf,Dockerfile,docker-compose.yml,env.d.ts,tailwind*"
+  },
+  // 配置全局搜索时排除的文件和文件夹，提升搜索效率，避免无关内容
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.gitignore": true,
+    "**/.idea": true,
+    "**/.svn": true,
+    "**/.vscode": true,
+    "**/build": true,
+    "**/dist": true,
+    "**/tmp": true,
+    "**/yarn.lock": true,
+    "**/assets": true,
+    "**/*.md": true,
+    "**/pnpm-lock.yaml": true,
+    "**/package.json": true
+  },
+
+  // 新增性能优化配置 不要监视这些目录的文件变化
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/build/**": true
+  },
+
+  "search.followSymlinks": false, // 搜索时不跟随符号链接，提升性能
+  "typescript.updateImportsOnFileMove.enabled": "never", // 禁用移动文件时自动更新导入路径
+  "javascript.updateImportsOnFileMove.enabled": "never", // 同上，针对 JavaScript 文件
+
+  // ============ 保持错误提示的额外配置 ============
+  "editor.renderWhitespace": "all", // 显示空白字符，帮助发现格式问题
+  "editor.renderControlCharacters": true, // 显示控制字符
+  "editor.suggest.showStatusBar": true, // 在状态栏显示建议信息
+  "problems.autoReveal": true, // 自动显示问题面板
+  "problems.showCurrentInStatus": true // 在状态栏显示当前问题数
+}

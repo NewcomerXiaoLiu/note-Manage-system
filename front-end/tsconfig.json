@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "target": "ESNext", // 指定 ECMAScript 目标版本为最新的 ESNext
+    "module": "ESNext", // 指定生成的模块代码为目标为 ESNext
+    "moduleResolution": "node",
+    "strict": true, // 开启所有严格的类型检查
+    "sourceMap": true, // 是否生成相应的 .map 文件，通常用于调试
+    "noEmit": true, // 不输出文件，这通常与 watch 或者 IDE 集成一起使用
+    "skipLibCheck": true, // 跳过所有声明文件（*.d.ts）的类型检查
+    "noEmitOnError": false, // 即使有错误也生成输出文件
+    "resolveJsonModule": true, // 允许导入扩展名为 .json 的文件
+    "noImplicitAny": false, // 是否禁用隐式 any 类型。
+    "noUnusedLocals": false, // 检查是否存在未使用的变量
+    "noUnusedParameters": false, // 检查是否存在未使用的函数参数
+    "noFallthroughCasesInSwitch": true, // 检查switch语句中是否存在break
+    "esModuleInterop": true, // 允许从没有设置默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true, // 允许从没有设置默认导出的模块中合成默认导入
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client", "vue", "vue-router"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    // 指定哪些文件需要被编译
+    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+    // "vite.config.ts",
+    // "scripts/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
+}

@@ -1,0 +1,8 @@
+import { routeModules } from '../modules';
+import type { AppRouteRecordRaw } from 'vue-router';
+
+/**
+ * 动态路由（需要权限才能访问的路由）
+ * 用于渲染菜单以及根据菜单权限动态加载路由，如果没有权限无法访问
+ */
+export const asyncRoutes: AppRouteRecordRaw[] = routeModules;
