@@ -16,7 +16,6 @@
 ```
 note-Manage-system/
 ├── front-end/          # 前端项目
-│   ├── CLAUDE.md       # 前端 AI 指引
 │   └── README.md       # 前端说明文档
 ├── back-end/           # 后端项目
 │   ├── README.md       # 后端说明文档
