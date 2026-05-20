@@ -1,5 +1,5 @@
 /*
- * @FilePath: /vue3-template-project/src/api/index.ts
+ * @FilePath: /note-Manage-system/front-end/src/api/index.ts
  * @Description: axios封装
  */
 import { message } from 'ant-design-vue';
@@ -13,14 +13,15 @@ import { useUserStore } from '@/store/modules/user';
 
 type BlobPart = string | Blob;
 
-const { VITE_APP_API_PREFIX, VITE_APP_API_HOST } = import.meta.env;
+const { VITE_ENV, VITE_APP_API_PREFIX, VITE_APP_API_HOST } = import.meta.env;
 
-export const baseURL = joinURL(VITE_APP_API_HOST);
+export const baseURL = VITE_ENV === 'development' ? VITE_APP_API_PREFIX : joinURL(VITE_APP_API_HOST);
 
 const service = axios.create({
   // baseURL: import.meta.env.VITE_BASE_API,
-  timeout: 10000,
-  baseURL: VITE_APP_API_PREFIX,
+  timeout: 30000, // 请求超时时间 30秒
+  // baseURL: VITE_APP_API_PREFIX,
+  baseURL: baseURL,
   // responseType: 'json',
   withCredentials: true, // 是否允许带cookie
   // paramsSerializer:(params) => Qs.stringify(params, {allowDots: true}), // 开启qs序列化
