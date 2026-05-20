@@ -1,44 +1,45 @@
-// ========== Crisp White Theme ==========
-// 清爽留白 · 干净轻盈
+// ========== Warm Walnut Theme ==========
+// 暖胡桃 · 温润质感 · 纸质笔记体验
 
 :root {
-  // -- Primary (Teal) --
-  --color-primary: #3d9b8f;
-  --color-primary-hover: #2d8b7f;
-  --color-primary-active: #1e7b6f;
-  --color-primary-light: rgba(61, 155, 143, 0.08);
-  --color-primary-bg: #f0faf8;
+  // -- Primary (Terracotta) --
+  --color-primary: #c1694f;
+  --color-primary-hover: #a8543d;
+  --color-primary-active: #8f4431;
+  --color-primary-light: rgba(193, 105, 79, 0.1);
+  --color-primary-bg: #f8f0eb;
 
-  // -- Neutrals --
-  --color-bg-page: #f8f9fa;
-  --color-bg-card: #ffffff;
+  // -- Neutrals (Warm) --
+  --color-bg-page: #f5f0eb;
+  --color-bg-card: #fffaf5;
   --color-bg-elevated: #ffffff;
-  --color-bg-header: rgba(255, 255, 255, 0.92);
-  --color-text-primary: #1a1a2e;
-  --color-text-secondary: #6b7280;
-  --color-text-muted: #9ca3af;
-  --color-border: #e8ecf0;
-  --color-border-light: #f0f2f4;
+  --color-bg-header: rgba(255, 250, 245, 0.88);
+  --color-text-primary: #1a1412;
+  --color-text-secondary: #7a6b60;
+  --color-text-muted: #b0a297;
+  --color-border: #e5d9ce;
+  --color-border-light: #f0e8e0;
 
-  // -- Accent --
-  --color-accent-coral: #e8927c;
-  --color-accent-coral-light: rgba(232, 146, 124, 0.1);
-  --color-accent-blue: #5b8def;
-  --color-accent-blue-light: rgba(91, 141, 239, 0.1);
-  --color-accent-amber: #f0b34b;
-  --color-accent-amber-light: rgba(240, 179, 75, 0.1);
+  // -- Accents (Warm) --
+  --color-accent-gold: #d4a76a;
+  --color-accent-gold-light: rgba(212, 167, 106, 0.15);
+  --color-accent-sage: #8fa892;
+  --color-accent-sage-light: rgba(143, 168, 146, 0.15);
+  --color-accent-mauve: #b8a4b8;
+  --color-accent-mauve-light: rgba(184, 164, 184, 0.15);
 
-  // -- Shadows --
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
-  --shadow-right: 1px 0 3px rgba(0, 0, 0, 0.04);
+  // -- Shadows (Warm) --
+  --shadow-sm: 0 1px 3px rgba(60, 40, 30, 0.06);
+  --shadow-md: 0 4px 12px rgba(60, 40, 30, 0.08);
+  --shadow-lg: 0 8px 30px rgba(60, 40, 30, 0.1);
+  --shadow-right: 1px 0 3px rgba(60, 40, 30, 0.04);
 
   // -- Typography --
   --font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Newsreader', 'DM Sans', serif;
 
   // -- Radius --
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 }

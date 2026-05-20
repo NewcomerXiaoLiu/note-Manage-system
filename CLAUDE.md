@@ -58,10 +58,19 @@ note-Manage-system/
 
 ## 前端核心约定
 
-### 设计主题
-- "Crisp White" 清爽风格，主色 Teal `#3D9B8F`，白底 + 浅灰背景
-- Ant Design ConfigProvider 统一管理主题 Token
+### 设计主题：Warm Walnut（暖胡桃）
+- 温暖质感风格，主色 Terracotta `#C1694F`，暖白背景 + 暖灰底色
+- 页面背景 `#F5F0EB`，卡片背景 `#FFFAF5`
+- Ant Design ConfigProvider 统一管理主题 Token（`App.vue`）
 - SCSS 自定义属性（`theme.scss`）全局设计 Token
+- 衬线字体 Newsreader（标题）+ DM Sans（正文）搭配
+
+### 主题切换（Layout 模式）
+- Layout 支持两种模式：`system`（系统菜单）和 `notes`（笔记菜单）
+- 由 `settingStore.menuMode` 控制，持久化存储
+- Header 折叠按钮旁有切换按钮（BookOutlined / AppstoreOutlined）
+- 笔记模式侧边栏显示分组树（`sidebar-groups.vue`），内容区显示笔记列表+详情（`notes-content.vue`）
+- 模式切换纯组件级渲染，不涉及路由改动
 
 ### 路由
 - 静态路由：登录页、错误页、布局容器

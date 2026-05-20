@@ -124,13 +124,13 @@
       }
 
       &.icon-groups {
-        color: var(--color-accent-amber);
-        background: var(--color-accent-amber-light);
+        color: var(--color-accent-sage);
+        background: var(--color-accent-sage-light);
       }
 
       &.icon-recent {
-        color: var(--color-accent-blue);
-        background: var(--color-accent-blue-light);
+        color: var(--color-accent-mauve);
+        background: var(--color-accent-mauve-light);
       }
     }
 
