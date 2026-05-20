@@ -1,11 +1,12 @@
+import 'reflect-metadata';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { AppModule } from '../src/app.module';
+import { AppModule } from './app.module';
 
 let cachedApp: any;
 
-async function createApp() {
+async function bootstrapServerless() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
@@ -30,7 +31,7 @@ async function createApp() {
 
 export default async function handler(req: any, res: any) {
   if (!cachedApp) {
-    cachedApp = await createApp();
+    cachedApp = await bootstrapServerless();
   }
   cachedApp(req, res);
 }
