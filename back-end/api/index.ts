@@ -15,6 +15,7 @@ async function createApp() {
 
   app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
 
+  // 生成 Swagger 文档
   const config = new DocumentBuilder()
     .setTitle('个人笔记管理系统 API')
     .setDescription('个人笔记管理系统的后端接口文档')
@@ -22,7 +23,37 @@ async function createApp() {
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api-docs', app, document);
+
+  // 提供 swagger.json 供 CDN Swagger UI 加载
+  app.get('/api-docs/swagger.json', (_req: any, res: any) => {
+    res.json(document);
+  });
+
+  // 使用 CDN 方式加载 Swagger UI，避免 Vercel serverless 静态资源路径问题
+  const swaggerHtml = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>API 文档 - 个人笔记管理系统</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css">
+  <style>html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}body{margin:0;background:#fafafa}</style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
+  <script>
+    SwaggerUIBundle({ url: '/api-docs/swagger.json', dom_id: '#swagger-ui' });
+  </script>
+</body>
+</html>`;
+
+  app.get('/api-docs', (_req: any, res: any) => {
+    res.type('text/html').send(swaggerHtml);
+  });
+
+  app.get('/api-docs/', (_req: any, res: any) => {
+    res.type('text/html').send(swaggerHtml);
+  });
 
   await app.init();
   return app.getHttpAdapter().getInstance();
