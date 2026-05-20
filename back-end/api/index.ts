@@ -25,8 +25,12 @@ async function createApp() {
 
   const document = SwaggerModule.createDocument(app, config);
 
+  // 获取 Express 实例，用于手动注册路由
+  const httpAdapter = app.getHttpAdapter();
+  const expressApp = httpAdapter.getInstance();
+
   // 提供 swagger.json 供 CDN Swagger UI 加载
-  app.get('/api-docs/swagger.json', (_req: any, res: any) => {
+  expressApp.get('/api-docs/swagger.json', (_req: any, res: any) => {
     res.json(document);
   });
 
@@ -37,7 +41,7 @@ async function createApp() {
   <meta charset="UTF-8">
   <title>API 文档 - 个人笔记管理系统</title>
   <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css">
-  <style>html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}body{margin:0;background:#fafafa}</style>
+  <style>body{margin:0;background:#fafafa}</style>
 </head>
 <body>
   <div id="swagger-ui"></div>
@@ -48,16 +52,16 @@ async function createApp() {
 </body>
 </html>`;
 
-  app.get('/api-docs', (_req: any, res: any) => {
+  expressApp.get('/api-docs', (_req: any, res: any) => {
     res.type('text/html').send(swaggerHtml);
   });
 
-  app.get('/api-docs/', (_req: any, res: any) => {
+  expressApp.get('/api-docs/', (_req: any, res: any) => {
     res.type('text/html').send(swaggerHtml);
   });
 
   await app.init();
-  return app.getHttpAdapter().getInstance();
+  return expressApp;
 }
 
 export default async function handler(req: any, res: any) {
