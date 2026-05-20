@@ -158,7 +158,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--color-bg-page) 0%, #eef1f5 100%);
+    background: linear-gradient(135deg, var(--color-bg-page) 0%, #ede6dd 100%);
   }
 
   .login-container {
@@ -167,7 +167,7 @@
     min-height: 480px;
     background: #ffffff;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(138, 180, 200, 0.1);
+    box-shadow: 0 4px 24px rgba(60, 40, 30, 0.08);
     overflow: hidden;
   }
 
@@ -179,7 +179,7 @@
     justify-content: center;
     flex: 1;
     padding: 48px;
-    background: linear-gradient(135deg, #f0f6f9 0%, #eaf2f5 100%);
+    background: linear-gradient(135deg, #f8f0eb 0%, #f0e8e0 100%);
 
     .brand-icon {
       display: flex;
@@ -190,11 +190,12 @@
       color: var(--color-primary);
       background: #ffffff;
       border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(138, 180, 200, 0.12);
+      box-shadow: 0 2px 8px rgba(60, 40, 30, 0.08);
       margin-bottom: 20px;
     }
 
     .brand-title {
+      font-family: var(--font-family-heading);
       font-size: 28px;
       font-weight: 700;
       color: var(--color-text-primary);

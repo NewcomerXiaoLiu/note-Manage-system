@@ -8,6 +8,12 @@
   padding: 24px;
   overflow-y: auto;
   background: var(--color-bg-page);
+  animation: pageFadeIn 0.35s ease;
+
+  @keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 
   &::-webkit-scrollbar {
     width: 6px;
@@ -20,6 +26,7 @@
 }
 
 .page-title {
+  font-family: var(--font-family-heading);
   font-size: 20px;
   font-weight: 600;
   color: var(--color-text-primary);

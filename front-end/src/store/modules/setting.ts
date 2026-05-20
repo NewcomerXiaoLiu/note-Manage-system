@@ -18,6 +18,9 @@ export const useSettingStore = defineStore(
     /** 是否显示进度条 */
     const showNprogress = ref(SETTING_DEFAULT_CONFIG.showNprogress);
 
+    /** 菜单模式：system-系统菜单 notes-笔记菜单(分组树) */
+    const menuMode = ref<'system' | 'notes'>('system');
+
     /**
      * 切换进度条显示
      */
@@ -25,9 +28,16 @@ export const useSettingStore = defineStore(
       showNprogress.value = !showNprogress.value;
     };
 
+    /** 切换菜单模式 */
+    const toggleMenuMode = () => {
+      menuMode.value = menuMode.value === 'system' ? 'notes' : 'system';
+    };
+
     return {
       showNprogress,
-      setNprogress
+      setNprogress,
+      menuMode,
+      toggleMenuMode
     };
   },
   {

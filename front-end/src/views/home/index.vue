@@ -129,8 +129,8 @@
       }
 
       &.icon-recent {
-        color: var(--color-accent-lavender);
-        background: var(--color-accent-lavender-light);
+        color: var(--color-accent-mauve);
+        background: var(--color-accent-mauve-light);
       }
     }
 
