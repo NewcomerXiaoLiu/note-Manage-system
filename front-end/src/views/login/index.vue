@@ -158,7 +158,7 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #f8f9fa 0%, #eef1f5 100%);
+    background: linear-gradient(135deg, var(--color-bg-page) 0%, #eef1f5 100%);
   }
 
   .login-container {
@@ -167,7 +167,7 @@
     min-height: 480px;
     background: #ffffff;
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 24px rgba(138, 180, 200, 0.1);
     overflow: hidden;
   }
 
@@ -179,7 +179,7 @@
     justify-content: center;
     flex: 1;
     padding: 48px;
-    background: linear-gradient(135deg, #f0faf8 0%, #e8f5f2 100%);
+    background: linear-gradient(135deg, #f0f6f9 0%, #eaf2f5 100%);
 
     .brand-icon {
       display: flex;
@@ -190,7 +190,7 @@
       color: var(--color-primary);
       background: #ffffff;
       border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(61, 155, 143, 0.1);
+      box-shadow: 0 2px 8px rgba(138, 180, 200, 0.12);
       margin-bottom: 20px;
     }
 
@@ -259,7 +259,7 @@
           transition: all 0.15s;
 
           &:hover {
-            background: rgba(61, 155, 143, 0.15);
+            background: var(--color-primary-light);
           }
         }
       }

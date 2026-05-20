@@ -1,44 +1,44 @@
-// ========== Crisp White Theme ==========
-// 清爽留白 · 干净轻盈
+// ========== 小清新 Theme ==========
+// 温柔治愈 · 轻盈透气
 
 :root {
-  // -- Primary (Teal) --
-  --color-primary: #3d9b8f;
-  --color-primary-hover: #2d8b7f;
-  --color-primary-active: #1e7b6f;
-  --color-primary-light: rgba(61, 155, 143, 0.08);
-  --color-primary-bg: #f0faf8;
+  // -- Primary (Sky Blue) --
+  --color-primary: #8ab4c8;
+  --color-primary-hover: #7aa8bc;
+  --color-primary-active: #6a9cb0;
+  --color-primary-light: rgba(138, 180, 200, 0.1);
+  --color-primary-bg: #f0f6f9;
 
   // -- Neutrals --
-  --color-bg-page: #f8f9fa;
+  --color-bg-page: #f4f6f8;
   --color-bg-card: #ffffff;
   --color-bg-elevated: #ffffff;
-  --color-bg-header: rgba(255, 255, 255, 0.92);
-  --color-text-primary: #1a1a2e;
+  --color-bg-header: rgba(255, 255, 255, 0.88);
+  --color-text-primary: #2d3436;
   --color-text-secondary: #6b7280;
   --color-text-muted: #9ca3af;
-  --color-border: #e8ecf0;
-  --color-border-light: #f0f2f4;
+  --color-border: #e6eaf0;
+  --color-border-light: #eef1f4;
 
   // -- Accent --
-  --color-accent-coral: #e8927c;
-  --color-accent-coral-light: rgba(232, 146, 124, 0.1);
-  --color-accent-blue: #5b8def;
-  --color-accent-blue-light: rgba(91, 141, 239, 0.1);
-  --color-accent-amber: #f0b34b;
-  --color-accent-amber-light: rgba(240, 179, 75, 0.1);
+  --color-accent-peach: #f0d0b8;
+  --color-accent-peach-light: rgba(240, 208, 184, 0.15);
+  --color-accent-sage: #b8d4c4;
+  --color-accent-sage-light: rgba(184, 212, 196, 0.15);
+  --color-accent-lavender: #c8bcd8;
+  --color-accent-lavender-light: rgba(200, 188, 216, 0.15);
 
-  // -- Shadows --
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
+  // -- Shadows (softer) --
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(138, 180, 200, 0.1);
+  --shadow-lg: 0 8px 30px rgba(138, 180, 200, 0.12);
   --shadow-right: 1px 0 3px rgba(0, 0, 0, 0.04);
 
   // -- Typography --
   --font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   // -- Radius --
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 }

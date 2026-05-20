@@ -15,10 +15,9 @@
                 placeholder="分组筛选"
                 allow-clear
                 style="width: 120px"
-                size="small"
                 @change="fetchNotes"
               />
-              <a-button type="primary" size="small" ghost @click="handleAdd">
+              <a-button type="primary" ghost @click="handleAdd">
                 <PlusOutlined />
                 新建
               </a-button>
@@ -57,12 +56,12 @@
               <span v-if="selectedNote.updated_at !== selectedNote.created_at">更新 {{ dayjs(selectedNote.updated_at).format('YYYY-MM-DD HH:mm') }}</span>
             </div>
             <div class="detail-actions">
-              <a-button size="small" @click="handleEdit(selectedNote)">
+              <a-button @click="handleEdit(selectedNote)">
                 <EditOutlined />
                 编辑
               </a-button>
               <a-popconfirm title="确定删除？" @confirm="handleDelete(selectedNote.id)" ok-text="删除" cancel-text="取消">
-                <a-button size="small" danger>
+                <a-button danger>
                   <DeleteOutlined />
                   删除
                 </a-button>

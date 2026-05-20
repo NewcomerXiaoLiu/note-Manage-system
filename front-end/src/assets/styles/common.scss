@@ -41,17 +41,17 @@
 
   .ant-card-head {
     border-bottom-color: var(--color-border-light) !important;
-    padding: 0 20px !important;
-    min-height: 50px !important;
+    padding: 0 24px !important;
+    min-height: 54px !important;
 
     .ant-card-head-title {
       font-size: 15px;
       font-weight: 600;
-      padding: 14px 0;
+      padding: 16px 0;
     }
   }
 
   .ant-card-body {
-    padding: 20px !important;
+    padding: 24px !important;
   }
 }
