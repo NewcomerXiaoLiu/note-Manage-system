@@ -7,6 +7,11 @@ export class CreateGroupDto {
   @IsString()
   name: string;
 
+  @ApiPropertyOptional({ description: '父级分组 ID（不传则为顶级分组）' })
+  @IsOptional()
+  @IsString()
+  parentId?: string;
+
   @ApiPropertyOptional({ description: '排序序号（越小越靠前）', example: 0 })
   @IsOptional()
   @IsNumber()
@@ -18,6 +23,11 @@ export class UpdateGroupDto {
   @IsOptional()
   @IsString()
   name?: string;
+
+  @ApiPropertyOptional({ description: '父级分组 ID' })
+  @IsOptional()
+  @IsString()
+  parentId?: string;
 
   @ApiPropertyOptional({ description: '排序序号', example: 1 })
   @IsOptional()
