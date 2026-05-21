@@ -1,10 +1,7 @@
-<!--
- * @FilePath: /vue3-template-project/src/components/core/layout/menu/menu.vue
- * @Description: 文件描述...
--->
 <template>
   <div class="layout-menu">
     <a-menu
+      v-if="settingStore.menuMode === 'system'"
       v-model:open-keys="state.openKeys"
       mode="vertical"
       :selected-keys="state.selectedKeys"
@@ -16,23 +13,27 @@
         :collapsed="collapsed"
       />
     </a-menu>
+    <sidebar-groups
+      v-else
+      @select="onGroupSelect"
+    />
   </div>
 </template>
+
 <script lang="ts" setup>
   import { computed, onBeforeMount, reactive, watch } from 'vue';
   import { useRoute, useRouter } from 'vue-router';
+  import sidebarGroups from '../mode-notes/sidebar-groups.vue';
   import MenuItem from './menu-item.vue';
   import { useMenuStore } from '@/store/modules/menu';
+  import { useSettingStore } from '@/store/modules/setting';
 
-  interface Props {
-    collapsed: boolean;
-  }
-
-  const props = withDefaults(defineProps<Props>(), {});
+  defineProps<{ collapsed: boolean }>();
 
   const route = useRoute();
   const router = useRouter();
   const menuStore = useMenuStore();
+  const settingStore = useSettingStore();
 
   const state = reactive({
     openKeys: [] as string[],
@@ -41,26 +42,28 @@
 
   const menus = computed(() => menuStore.showMenuListGet);
 
-  // 点击菜单
-  const clickMenuItem = ({ key }) => {
+  const clickMenuItem = ({ key }: { key: string }) => {
     router.push({ path: key });
   };
 
-  // 监听路由菜单的变化
   const setMenuKey = () => {
     route.matched.forEach(item => {
       state.openKeys = [item.path as string];
     });
-    // if (['/tableSpace/detail'].includes(route.path)) {
-    //   state.selectedKeys = ['/tableSpace'];
-    //   return;
-    // }
     state.selectedKeys = [route.path as string];
+  };
+
+  const onGroupSelect = (groupId: string | undefined) => {
+    router.push({ path: '/notes', query: groupId ? { groupId } : undefined });
   };
 
   onBeforeMount(setMenuKey);
   watch(route, setMenuKey);
 </script>
+
 <style lang="scss" scoped>
-  // .layout-menu {}
+  .layout-menu {
+    height: 100%;
+    overflow-y: auto;
+  }
 </style>
