@@ -1,8 +1,5 @@
 <template>
   <div class="sidebar-groups">
-    <div class="groups-header">
-      <span class="groups-title">笔记分类</span>
-    </div>
     <div class="groups-body">
       <!-- 全部笔记 -->
       <div
@@ -151,19 +148,6 @@
     height: 100%;
     overflow: hidden;
 
-    .groups-header {
-      padding: 12px 12px 8px;
-      flex-shrink: 0;
-
-      .groups-title {
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--color-text-muted);
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-    }
-
     .groups-body {
       flex: 1;
       overflow-y: auto;
@@ -173,7 +157,7 @@
         width: 4px;
       }
       &::-webkit-scrollbar-thumb {
-        background: var(--color-border);
+        background: rgba(255, 255, 255, 0.15);
         border-radius: 2px;
       }
 
@@ -187,17 +171,18 @@
         transition: all 0.15s;
 
         &:hover {
-          background: var(--color-bg-page);
+          background: rgba(255, 255, 255, 0.08);
         }
 
         &.active {
-          background: var(--color-primary-light);
+          background: rgba(22, 119, 255, 0.2);
           .group-name {
-            color: var(--color-primary);
+            color: #1677ff;
             font-weight: 600;
           }
           .group-count {
-            color: var(--color-primary);
+            color: #1677ff;
+            background: rgba(22, 119, 255, 0.15);
           }
         }
 
@@ -209,14 +194,14 @@
           height: 16px;
           margin-right: 2px;
           font-size: 10px;
-          color: var(--color-text-muted);
+          color: rgba(255, 255, 255, 0.45);
           flex-shrink: 0;
           cursor: pointer;
           border-radius: 3px;
           transition: background 0.15s;
 
           &:hover {
-            background: var(--color-border-light);
+            background: rgba(255, 255, 255, 0.12);
           }
         }
 
@@ -227,7 +212,7 @@
 
         .group-name {
           font-size: 14px;
-          color: var(--color-text-primary);
+          color: rgba(255, 255, 255, 1);
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
@@ -237,8 +222,8 @@
 
         .group-count {
           font-size: 11px;
-          color: var(--color-text-muted);
-          background: var(--color-bg-page);
+          color: rgba(255, 255, 255, 1);
+          background: rgba(255, 255, 255, 0.18);
           padding: 0 6px;
           border-radius: 8px;
           line-height: 18px;
@@ -252,7 +237,7 @@
         text-align: center;
         padding: 24px 12px;
         font-size: 13px;
-        color: var(--color-text-muted);
+        color: rgba(255, 255, 255, 0.45);
       }
     }
   }

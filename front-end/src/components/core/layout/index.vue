@@ -3,6 +3,7 @@
     <a-layout-sider
       :collapsed="collapsed"
       :trigger="null"
+      theme="dark"
       class="layout-sider"
     >
       <a-flex
@@ -10,7 +11,6 @@
         style="overflow: hidden; height: 100%"
       >
         <layout-logo
-          v-if="settingStore.menuMode === 'system'"
           :collapsed="collapsed"
           style="flex: none"
         />
@@ -49,7 +49,7 @@
     overflow: hidden;
 
     .layout-sider {
-      background: var(--color-bg-card) !important;
+      // background: var(--color-bg-card) !important;
       border-right: 1px solid var(--color-border);
       box-shadow: var(--shadow-right);
       z-index: 20;
