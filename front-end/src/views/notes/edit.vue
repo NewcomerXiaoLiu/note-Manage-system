@@ -150,6 +150,31 @@
       placeholder: '开始书写...',
       onChange: () => {
         if (editor) form.content = editor.getHtml();
+      },
+      MENU_CONF: {
+        codeSelectLang: {
+          codeLangs: [
+            { label: 'JavaScript', value: 'javascript' },
+            { label: 'TypeScript', value: 'typescript' },
+            { label: 'HTML', value: 'html' },
+            { label: 'CSS', value: 'css' },
+            { label: 'SCSS', value: 'scss' },
+            { label: 'Vue', value: 'vue' },
+            { label: 'JSX', value: 'jsx' },
+            { label: 'Python', value: 'python' },
+            { label: 'Java', value: 'java' },
+            { label: 'Kotlin', value: 'kotlin' },
+            { label: 'Go', value: 'go' },
+            { label: 'Rust', value: 'rust' },
+            { label: 'SQL', value: 'sql' },
+            { label: 'Shell', value: 'bash' },
+            { label: 'JSON', value: 'json' },
+            { label: 'XML', value: 'xml' },
+            { label: 'YAML', value: 'yaml' },
+            { label: 'Markdown', value: 'markdown' },
+            { label: 'Diff', value: 'diff' },
+          ]
+        }
       }
     };
 
