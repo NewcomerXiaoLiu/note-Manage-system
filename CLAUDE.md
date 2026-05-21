@@ -58,12 +58,10 @@ note-Manage-system/
 
 ## 前端核心约定
 
-### 设计主题：Warm Walnut（暖胡桃）
-- 温暖质感风格，主色 Terracotta `#C1694F`，暖白背景 + 暖灰底色
-- 页面背景 `#F5F0EB`，卡片背景 `#FFFAF5`
+### 设计主题：Ant Design 默认主题
+- Ant Design Vue 默认蓝色主题，主色 `#1677ff`
 - Ant Design ConfigProvider 统一管理主题 Token（`App.vue`）
 - SCSS 自定义属性（`theme.scss`）全局设计 Token
-- 衬线字体 Newsreader（标题）+ DM Sans（正文）搭配
 
 ### 主题切换（Layout 模式）
 - Layout 支持两种模式：`system`（系统菜单）和 `notes`（笔记菜单）
@@ -82,6 +80,8 @@ note-Manage-system/
 - 响应拦截器接受 HTTP 200/201，业务 code 0/200
 - `await-to-js` 错误处理模式：`const [err, res] = await to(fn())`
 
-### 富文本编辑器
-- 使用 `@wangeditor/editor`（非 Vue 封装版）
+### 富文本编辑器（笔记编辑页）
+- 使用 `@wangeditor/editor` + `@wangeditor/code-highlight`
 - DOM 方式初始化，`onChange` 同步 HTML 内容到表单
+- 编辑页仿腾讯文档风格：白纸居中布局（`tdoc-paper`），大号无边框标题，极简顶部操作栏
+- 工具栏包含完整功能：标题、字体/字号/行高、加粗/斜体/下划线/删除线/颜色、列表、表格、代码块、链接、表情、缩进、撤销/重做、全屏

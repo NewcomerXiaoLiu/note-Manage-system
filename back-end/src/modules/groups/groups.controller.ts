@@ -15,6 +15,13 @@ export class GroupsController {
     return this.service.findAll();
   }
 
+  @Get('tree')
+  @ApiOperation({ summary: '获取分组树形结构' })
+  @ApiResponse({ status: 200, description: '返回嵌套的分组树' })
+  getTree() {
+    return this.service.getTree();
+  }
+
   @Get(':id')
   @ApiOperation({ summary: '获取单个分组' })
   findOne(@Param('id') id: string) {

@@ -2,10 +2,10 @@ import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateNoteDto {
-  @ApiProperty({ description: '所属分组 ID', example: 'xxx' })
-  @IsNotEmpty({ message: '分组 ID 不能为空' })
+  @ApiPropertyOptional({ description: '所属分组 ID（不传则为未分组）', example: 'xxx' })
+  @IsOptional()
   @IsString()
-  groupId: string;
+  groupId?: string;
 
   @ApiProperty({ description: '笔记标题', example: '学习笔记' })
   @IsNotEmpty({ message: '笔记标题不能为空' })

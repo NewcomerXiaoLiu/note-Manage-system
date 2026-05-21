@@ -33,7 +33,7 @@ export class NotesService {
     const id = nanoid();
     await this.d1.execute(
       'INSERT INTO notes (id, group_id, title, content) VALUES (?, ?, ?, ?)',
-      [id, dto.groupId, dto.title, dto.content ?? '']
+      [id, dto.groupId ?? null, dto.title, dto.content ?? '']
     );
     return this.findOne(id);
   }
