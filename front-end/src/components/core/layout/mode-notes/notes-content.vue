@@ -6,7 +6,10 @@
         <h2 class="content-title">笔记</h2>
       </div>
       <div class="content-header-right">
-        <a-button type="primary" @click="handleAdd">
+        <a-button
+          type="primary"
+          @click="handleAdd"
+        >
           <plus-outlined />
           新建笔记
         </a-button>
@@ -26,11 +29,16 @@
         >
           <div class="note-item-title">{{ note.title || '无标题' }}</div>
           <div class="note-item-meta">
-            <span>{{ note.group_name }}</span>
+            <span>{{ note.group_name || '未分组' }}</span>
             <span>{{ dayjs(note.created_at).format('MM-DD HH:mm') }}</span>
           </div>
         </div>
-        <div v-if="!loading && filteredNotes.length === 0" class="empty-notes">暂无笔记</div>
+        <div
+          v-if="!loading && filteredNotes.length === 0"
+          class="empty-notes"
+        >
+          暂无笔记
+        </div>
       </div>
 
       <!-- 笔记详情 -->
@@ -39,32 +47,57 @@
           <div class="detail-header">
             <h3 class="detail-title">{{ selectedNote.title }}</h3>
             <div class="detail-meta">
-              <span>{{ selectedNote.group_name }}</span>
+              <span>{{ selectedNote.group_name || '未分组' }}</span>
               <span>·</span>
               <span>创建 {{ dayjs(selectedNote.created_at).format('YYYY-MM-DD HH:mm') }}</span>
               <span v-if="selectedNote.updated_at !== selectedNote.created_at">·</span>
-              <span v-if="selectedNote.updated_at !== selectedNote.created_at">更新 {{ dayjs(selectedNote.updated_at).format('YYYY-MM-DD HH:mm') }}</span>
+              <span v-if="selectedNote.updated_at !== selectedNote.created_at">
+                更新 {{ dayjs(selectedNote.updated_at).format('YYYY-MM-DD HH:mm') }}
+              </span>
             </div>
             <div class="detail-actions">
-              <a-button size="small" @click="handleEdit(selectedNote)">
+              <a-button
+                size="small"
+                @click="handleEdit(selectedNote)"
+              >
                 <edit-outlined />
                 编辑
               </a-button>
-              <a-popconfirm title="确定删除？" @confirm="handleDelete(selectedNote.id)" ok-text="删除" cancel-text="取消">
-                <a-button size="small" danger>
+              <a-popconfirm
+                title="确定删除？"
+                ok-text="删除"
+                cancel-text="取消"
+                @confirm="handleDelete(selectedNote.id)"
+              >
+                <a-button
+                  size="small"
+                  danger
+                >
                   <delete-outlined />
                   删除
                 </a-button>
               </a-popconfirm>
             </div>
           </div>
-          <div class="detail-divider"></div>
+          <div class="detail-divider" />
           <div class="detail-body">
-            <div v-if="selectedNote.content" class="detail-content" v-html="selectedNote.content"></div>
-            <div v-else class="empty-content">暂无内容</div>
+            <div
+              v-if="selectedNote.content"
+              class="detail-content"
+              v-html="selectedNote.content"
+            />
+            <div
+              v-else
+              class="empty-content"
+            >
+              暂无内容
+            </div>
           </div>
         </template>
-        <div v-else class="detail-empty">
+        <div
+          v-else
+          class="detail-empty"
+        >
           <file-search-outlined />
           <p>选择一篇笔记查看详情</p>
         </div>
@@ -84,8 +117,8 @@
 
   interface Note {
     id: string;
-    group_id: string;
-    group_name: string;
+    group_id: string | null;
+    group_name: string | null;
     title: string;
     content: string;
     created_at: string;
@@ -101,6 +134,9 @@
 
   const filteredNotes = computed(() => {
     if (!props.selectedGroupId) return allNotes.value;
+    if (props.selectedGroupId === '__ungrouped') {
+      return allNotes.value.filter(n => !n.group_id);
+    }
     return allNotes.value.filter(n => n.group_id === props.selectedGroupId);
   });
 
@@ -116,9 +152,15 @@
     }
   };
 
-  const selectNote = (note: Note) => { selectedNote.value = note; };
-  const handleAdd = () => { router.push('/notes/edit'); };
-  const handleEdit = (note: Note) => { router.push(`/notes/edit/${note.id}`); };
+  const selectNote = (note: Note) => {
+    selectedNote.value = note;
+  };
+  const handleAdd = () => {
+    router.push('/notes/edit');
+  };
+  const handleEdit = (note: Note) => {
+    router.push(`/notes/edit/${note.id}`);
+  };
 
   const handleDelete = async (id: string) => {
     const [err] = await to(notesApi.remove(id));
@@ -128,9 +170,16 @@
     fetchNotes();
   };
 
-  const updateListMaxHeight = () => { /* no-op, CSS handles it */ };
+  const updateListMaxHeight = () => {
+    /* no-op, CSS handles it */
+  };
 
-  watch(() => props.selectedGroupId, () => { selectedNote.value = null; });
+  watch(
+    () => props.selectedGroupId,
+    () => {
+      selectedNote.value = null;
+    }
+  );
 
   onMounted(() => {
     window.addEventListener('resize', updateListMaxHeight);
@@ -187,8 +236,13 @@
         box-shadow: var(--shadow-sm);
         padding: 4px;
 
-        &::-webkit-scrollbar { width: 4px; }
-        &::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+        &::-webkit-scrollbar {
+          width: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background: var(--color-border);
+          border-radius: 2px;
+        }
 
         .note-item {
           padding: 12px 16px;
@@ -197,11 +251,15 @@
           margin-bottom: 2px;
           transition: all 0.15s;
 
-          &:hover { background: var(--color-bg-page); }
+          &:hover {
+            background: var(--color-bg-page);
+          }
 
           &.active {
             background: var(--color-primary-light);
-            .note-item-title { color: var(--color-primary); }
+            .note-item-title {
+              color: var(--color-primary);
+            }
           }
 
           .note-item-title {
@@ -278,15 +336,24 @@
           flex: 1;
           overflow-y: auto;
 
-          &::-webkit-scrollbar { width: 4px; }
-          &::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+          &::-webkit-scrollbar {
+            width: 4px;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: var(--color-border);
+            border-radius: 2px;
+          }
 
           .detail-content {
             font-size: 15px;
             line-height: 1.8;
             color: var(--color-text-primary);
 
-            :deep(img) { max-width: 100%; border-radius: 6px; margin: 12px 0; }
+            :deep(img) {
+              max-width: 100%;
+              border-radius: 6px;
+              margin: 12px 0;
+            }
             :deep(blockquote) {
               margin: 12px 0;
               padding: 10px 16px;
@@ -323,7 +390,10 @@
             opacity: 0.3;
           }
 
-          p { font-size: 14px; margin: 0; }
+          p {
+            font-size: 14px;
+            margin: 0;
+          }
         }
       }
     }

@@ -58,6 +58,7 @@
     "@ant-design/icons-vue": "^7.0.1",
     "@tailwindcss/vite": "^4.1.18",
     "@vueuse/core": "^11.3.0",
+    "@wangeditor/code-highlight": "^1.0.3",
     "@wangeditor/editor": "^5.1.23",
     "ant-design-vue": "^4.2.6",
     "await-to-js": "^3.0.0",
